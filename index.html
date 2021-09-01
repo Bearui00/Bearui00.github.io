@@ -18,7 +18,7 @@
 <meta property="og:title" content="Bearui&#39;s Blog">
 <meta property="og:url" content="http://bearui00.github.io/index.html">
 <meta property="og:site_name" content="Bearui&#39;s Blog">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Bearui00">
 <meta name="twitter:card" content="summary">
   
@@ -31,6 +31,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.a5fda8.css">
+
   <style type="text/css">
     
     #container.show {
@@ -75,11 +76,21 @@
 			
 				<li><a href="/" target="_blank">主页</a></li>
 			
-				<li><a href="/categories" target="_blank">归档</a></li>
+				<li><a href="/archives" target="_blank">归档</a></li>
+			
+				<li><a href="/categories" target="_blank">分类</a></li>
+			
+				<li><a href="/tags" target="_blank">标签</a></li>
 			
 				<li><a href="/talks" target="_blank">碎碎念</a></li>
 			
 			</ul>
+		</nav>
+                                <nav>
+                                                 总文章数 3
+                                </nav>
+		<nav>
+			 总字数 <span class="post-count">732</span>
 		</nav>
 		<nav class="header-smart-menu">
 			
@@ -106,7 +117,7 @@
 				
 					
 						<a class="gitee" href="#" 
-												title="gitee" target="_blank"><i class="icon-gitee"></i></a>
+												title="码云" target="_blank"><i class="icon-gitee"></i></a>
 					
 				
 					
@@ -116,12 +127,12 @@
 				
 					
 						<a class="weixin" href="/img/weixin.jpg" 
-												title="wechat" target="_blank"><i class="icon-weixin"></i></a>
+												title="微信" target="_blank"><i class="icon-weixin"></i></a>
 					
 				
 					
 						<a class="mail" href="mailto:1105580199@qq.com" 
-												title="Email" target="_blank"><i class="icon-mail"></i></a>
+												title="邮件联系" target="_blank"><i class="icon-mail"></i></a>
 					
 				
 			</div>
@@ -164,6 +175,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -176,7 +191,7 @@
 					
 						
 						<a class="gitee" target="_blank" 
-							href="#" title="gitee"><i class="icon-gitee"></i></a>
+							href="#" title="码云"><i class="icon-gitee"></i></a>
 						
 					
 						
@@ -186,12 +201,12 @@
 					
 						
 						<a class="weixin" target="_blank" 
-							href="/img/weixin.jpg" title="wechat"><i class="icon-weixin"></i></a>
+							href="/img/weixin.jpg" title="微信"><i class="icon-weixin"></i></a>
 						
 					
 						
 						<a class="mail" target="_blank" 
-							href="mailto:1105580199@qq.com" title="Email"><i class="icon-mail"></i></a>
+							href="mailto:1105580199@qq.com" title="邮件联系"><i class="icon-mail"></i></a>
 						
 					
 				</div>
@@ -201,11 +216,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories">归档</a></li>
+					<li style="width: 20%"><a href="/archives">归档</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/talks">碎碎念</a></li>
+					<li style="width: 20%"><a href="/categories">分类</a></li>
+		        
+					<li style="width: 20%"><a href="/tags">标签</a></li>
+		        
+					<li style="width: 20%"><a href="/talks">碎碎念</a></li>
 		        
 				</ul>
 			</nav>
@@ -222,6 +241,115 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <article id="post-全连接实现手写体识别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/08/31/%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%AE%9E%E7%8E%B0%E6%89%8B%E5%86%99%E4%BD%93%E8%AF%86%E5%88%AB/" target="_blank">全连接实现手写体识别</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/08/31/%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%AE%9E%E7%8E%B0%E6%89%8B%E5%86%99%E4%BD%93%E8%AF%86%E5%88%AB/" class="archive-article-date">
+        <time datetime="2021-08-31T13:22:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="实验目标"><a href="#实验目标" class="headerlink" title="实验目标"></a>实验目标</h1><ul>
+<li>实验数据集为MNIST - 0、1、2三类手写数字识别数据集（from keras.datasets import mnist），进行特征工程处理(5’)</li>
+<li>选择实现全连接神经网络或卷积神经网络，具体网络设计要求如下：激活函数为 sigmoid，输出层激活函数为 softmax 函数，损失函数为交叉熵代价函数；以MNIST中20%的数据作为测试集进行预测，计算并可视化每个epoch的训练误差、训练精度、测试误差和测试精度(10’)</li>
+<li>推导反向传播公式，在报告中给出(5’)</li>
+<li>对实验过程中的过拟合和欠拟合现象进行分析，在报告中给出</li>
+<li>尝试更换其他激活函数，对比分析结果</li>
+</ul>
+    
+    <a class="article-more-a" href="/2021/08/31/%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%AE%9E%E7%8E%B0%E6%89%8B%E5%86%99%E4%BD%93%E8%AF%86%E5%88%AB/#more">more >></a>
+    
+    
+
+
+
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Homework//" class="article-tag-list-link color4">Homework</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/08/31/%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%AE%9E%E7%8E%B0%E6%89%8B%E5%86%99%E4%BD%93%E8%AF%86%E5%88%AB/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <article id="post-MY-DA" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -251,11 +379,18 @@
   
   </header>
   
+
   <div class="article-entry" itemprop="articleBody">
     
+
+    
+
     <h1 id="冲冲"><a href="#冲冲" class="headerlink" title="冲冲"></a>冲冲</h1><p><em>111</em></p>
 
     
+
+
+
 
     
 
@@ -265,13 +400,24 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
+        			<a href="/categories/Homework//" class="article-tag-list-link color4">Homework</a>
         		</li>
       		
 		</ul>
@@ -337,8 +483,12 @@
   
   </header>
   
+
   <div class="article-entry" itemprop="articleBody">
     
+
+    
+
     <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -354,6 +504,9 @@
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
     
+
+
+
 
     
 
@@ -524,6 +677,10 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
