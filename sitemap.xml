@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://bearui00.github.io/2021/09/15/%E5%86%B3%E7%AD%96%E6%A0%91%EF%BC%88%E7%BB%8F%E5%85%B8%E8%A5%BF%E7%93%9C%EF%BC%89/</loc>
+    
+    <lastmod>2021-09-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://bearui00.github.io/2021/08/31/%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%AE%9E%E7%8E%B0%E6%89%8B%E5%86%99%E4%BD%93%E8%AF%86%E5%88%AB/</loc>
     
     <lastmod>2021-09-15</lastmod>
@@ -39,7 +46,7 @@
 
   <url>
     <loc>http://bearui00.github.io/</loc>
-    <lastmod>2021-09-15</lastmod>
+    <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -47,7 +54,7 @@
   
   <url>
     <loc>http://bearui00.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-09-15</lastmod>
+    <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -56,7 +63,7 @@
   
   <url>
     <loc>http://bearui00.github.io/categories/Homework/</loc>
-    <lastmod>2021-09-15</lastmod>
+    <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
